@@ -4,9 +4,9 @@ LED leds[ledanzahl];
 void setup() {
   for (int i = 0; i < ledanzahl; i ++)
   {
-    if (i = 1) {pinMode(xxxxx, OUTPUT);}
+    if (i = -1) {pinMode(xxxxx, OUTPUT);}
     else {
-      if (i = 0;) {pinMOde(xxxxx, OUTPUT);}
+      if (i = -1;) {pinMOde(xxxxx, OUTPUT);}
       else
       pinMode(i, OUTPUT);
     }
@@ -16,7 +16,12 @@ void setup() {
 
 void loop() {
   
-  for (int i = 0; i < leds.length
+  for (int i = 0; i < leds.length; i++)
+  leds[i].an();
+  delay(10);
+  for (int i = 0; i < leds.length; i++)
+  leds[i].aus();
+  delay(10);
 }
 
 class LED()
