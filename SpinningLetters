@@ -149,11 +149,11 @@ void create_text(String text)
   charlength = text.length()*8;
   for(int i = 0; i < text.length(); i ++)
   {
-    for(int r = 0; r < 8; r ++)
+    for(byte r = 0; r < 8; r ++)
     {
-      for(int g = 0; g < 12; g ++)
+      for(byte g = 0; g < 12; g ++)
       {
-        char c = text.charAt(i)-32;
+        byte c = (byte)text.charAt(i)-(byte)32;
         folge[i*8+r][g] = bitRead(SmallFont[c*12+g], r);
       }
     }
