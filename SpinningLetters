@@ -136,6 +136,7 @@ class LED {
 
   
 void setup() {
+Serial.begin(9600);
   for (int i = 2; i < ledanzahl+2; i ++)
   {
     pinMode(i, OUTPUT);
@@ -158,8 +159,16 @@ void create_text(String text)
     }
   }
 }
-
+int incomingByte = 0;
 void loop() {
+if (Serial.available() > 0) {
+                 // read the incoming byte:
+                 incomingByte = Serial.read();
+
+                 // say what you got:
+                 Serial.print("I received: ");
+                 Serial.println(incomingByte, DEC);
+         }
   for (int i = 0; i < charlength; i ++)
   {
     for (int j = 0; j < 12; j ++)
