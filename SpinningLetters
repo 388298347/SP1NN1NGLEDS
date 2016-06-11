@@ -154,7 +154,7 @@ void create_text(String text)
       for(int g = 0; g < 12; g ++)
       {
         char c = text.charAt(i)-32;
-        folge[g][i*8+r] = SmallFont[c*12+g];
+        folge[i*8+r][g] = SmallFont[c*12+g];
       }
     }
   }
@@ -163,7 +163,7 @@ void loop() {
  String content = "";
   char character;
 
-  while(Serial.available()) {
+  while(Serial.available() > 0) {
       character = Serial.read();
       content.concat(character);
   }
