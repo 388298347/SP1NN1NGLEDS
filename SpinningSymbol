@@ -60,7 +60,7 @@ void loop() {
       if (folge[i][j] == 1)
         leds[j].an();
     }
-    delay(5);
+    delay(1);
   }
 }
 
