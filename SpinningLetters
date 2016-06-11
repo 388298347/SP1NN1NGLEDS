@@ -17,14 +17,14 @@ class LED {
   {
     digitalWrite(pin, LOW);
   }
-  bool emptyfunction() //status abfrage
+  /*bool emptyfunction() //status abfrage
   {
     if (digitalRead(pin) == HIGH)
     {
       return true;
     }
     return false;
-  }
+  }*/
 };
     const byte SmallFont[1140] PROGMEM={
 
