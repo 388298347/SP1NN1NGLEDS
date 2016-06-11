@@ -181,7 +181,7 @@ void loop() {
     do
     {
     }
-    while(akt_time+750>micros())
+    while(akt_time+750>micros());
   }
 }
 
