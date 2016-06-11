@@ -169,7 +169,7 @@ void loop() {
       else
         leds[j].an();
     }
-    delay(1);
+    delay(0.75);
   }
 }
 
