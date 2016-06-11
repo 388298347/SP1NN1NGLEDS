@@ -155,8 +155,11 @@ void create_text(String text)
       {
         byte c = (byte)text.charAt(i)-(byte)32;
         folge[i*8+r][g] = bitRead(SmallFont[c*12+g], r);
+        Serial.print(bitRead(SmallFont[c*12+g], r));
       }
+      Serial.println();
     }
+    Serial.println();
   }
 }
 void loop() {
@@ -166,6 +169,7 @@ void loop() {
   while(Serial.available() > 0) {
       character = Serial.read();
       content.concat(character);
+      Serial.println(content);
       create_text(content);
   }
   for (int i = 0; i < charlength; i ++)
