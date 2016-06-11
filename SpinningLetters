@@ -141,11 +141,10 @@ void setup() {
     pinMode(i, OUTPUT);
   }
 }
-bool folge[16*8][12]; //max. letters to display
+bool folge[11*8][12]; //max. letters to display
 int charlength;
 void create_text(String text)
 {
-  folge[text.length()*8][12];
   charlength = text.length()*8;
   for(int i = 0; i < text.length(); i ++)
   {
