@@ -1,0 +1,67 @@
+class LED {
+  int pin;
+  public:
+  LED()
+  {
+    
+  }
+  LED(int pinnum)
+  {
+    pin = pinnum;
+  }
+  void an()
+  {
+    digitalWrite(pin, HIGH);
+  }
+  void aus()
+  {
+    digitalWrite(pin, LOW);
+  }
+  bool emptyfunction() //status abfrage
+  {
+    if (digitalRead(pin) == HIGH)
+    {
+      return true;
+    }
+    return false;
+  }
+};
+  int x = 0;
+  int folge[12][12] = {
+    {0,0,0,1,1,1,1,1,1,1,1,0},				//Stat diese 1 und 0 kannst du deine 1 und 0 rein machen
+    {0,0,1,1,0,0,0,1,1,1,1,1},
+    {0,1,1,0,0,1,0,0,1,1,1,1},
+    {0,1,0,0,0,0,0,0,1,1,1,0},
+    {0,1,0,1,1,0,0,0,1,1,0,0},
+    {0,1,0,1,0,0,0,0,1,1,0,0},
+    {0,1,0,1,1,0,0,0,1,1,0,0},
+    {0,1,0,0,0,0,0,0,1,1,1,0},
+    {0,1,1,0,0,1,0,0,1,1,1,1},
+    {0,0,1,1,0,0,0,1,1,1,1,1},
+    {0,0,0,1,1,1,1,1,1,1,1,0},
+    {0,0,0,0,0,0,0,0,0,0,0,0}
+  };
+  const int ledanzahl = 12;
+  LED leds[ledanzahl] = {LED(13), LED(2), LED(3), LED(4), LED(5), LED(6), LED(7), LED(8), LED(9), LED(10), LED(11), LED(12)};
+void setup() {
+  for (int i = 2; i < ledanzahl+2; i ++)
+  {
+    pinMode(i, OUTPUT);
+  }
+}
+
+void loop() {
+  for (int i = 0; i < 12; i ++)
+  {
+    for (int j = 0; j < 12; j ++)
+    {
+      if (folge[i][j] == 0)
+        leds[j].aus();
+      if (folge[i][j] == 1)
+        leds[j].an();
+    }
+    delay(1);
+  }
+}
+
+
