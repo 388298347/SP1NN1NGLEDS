@@ -169,8 +169,11 @@ void loop() {
       else
         leds[j].an();
     }
-    delay(0.75);
+int akt_time=micros();
+do
+{
+
+}while(akt_time+75<micros())
   }
 }
-
 
