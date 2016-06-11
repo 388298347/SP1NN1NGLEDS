@@ -4,12 +4,9 @@ LED leds[ledanzahl];
 void setup() {
   for (int i = 0; i < ledanzahl; i ++)
   {
-    if (i = 1) {pinMode(xxxxx, OUTPUT);}
-    else {
-      if (i = 0;) {pinMOde(xxxxx, OUTPUT);}
-      else
+   
       pinMode(i, OUTPUT);
-    }
+    
     leds[i] = new LED(i);
   }
 }
