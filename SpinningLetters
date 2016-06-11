@@ -1,3 +1,4 @@
+#include <avr/pgmspace.h>
 class LED {
   int pin;
   public:
@@ -154,8 +155,9 @@ void create_text(String text)
       for(byte g = 0; g < 12; g ++)
       {
         byte c = (byte)text.charAt(i)-(byte)32;
-        folge[i*8+r][g] = bitRead(SmallFont[c*12+g], r);
-        Serial.print(bitRead(SmallFont[c*12+g], r));
+        byte s = pgm_read_byte_near(SmallFont + c*12+g);
+        folge[i*8+r][g] = bitRead(s, r);
+        Serial.print(bitRead(s, r));
       }
       Serial.println();
     }
