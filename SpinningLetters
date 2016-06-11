@@ -167,6 +167,7 @@ void loop() {
       character = Serial.read();
       content.concat(character);
   }
+  Serial.Flush();
   create_text(content);
   for (int i = 0; i < charlength; i ++)
   {
