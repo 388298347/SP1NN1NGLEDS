@@ -141,7 +141,7 @@ void setup() {
     pinMode(i, OUTPUT);
   }
 }
-bool folge[16*8][12]; //max. letters to display
+bool folge[8*8][12]; //max. letters to display
 int charlength;
 void create_text(String text)
 {
