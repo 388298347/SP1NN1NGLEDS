@@ -156,7 +156,7 @@ void create_text(String text)
       {
         byte c = (byte)text.charAt(i)-(byte)32;
         byte s = pgm_read_byte_near(SmallFont + c*12+g);
-        folge[i*8+r][g] = bitRead(s, r);
+        folge[i*8+r][g] = bitRead(s, 7-r);
         Serial.print(bitRead(s, r));
       }
       Serial.println();
