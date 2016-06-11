@@ -169,11 +169,11 @@ void loop() {
       else
         leds[j].an();
     }
-int akt_time=micros();
-do
-{
-
-}while(akt_time+75<micros())
+    int akt_time=micros();
+    do
+    {
+    }
+    while(akt_time+750>micros())
   }
 }
 
