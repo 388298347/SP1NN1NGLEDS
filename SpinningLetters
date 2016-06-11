@@ -142,7 +142,7 @@ Serial.begin(9600);
     pinMode(i, OUTPUT);
   }
 }
-bool folge[8*8][12]; //max. letters to display
+bool folge[4*8][12]; //max. letters to display
 int charlength;
 void create_text(String text)
 {
@@ -159,16 +159,15 @@ void create_text(String text)
     }
   }
 }
-int incomingByte = 0;
 void loop() {
-if (Serial.available() > 0) {
-                 // read the incoming byte:
-                 incomingByte = Serial.read();
+ String content = "";
+  char character;
 
-                 // say what you got:
-                 Serial.print("I received: ");
-                 Serial.println(incomingByte, DEC);
-         }
+  while(Serial.available()) {
+      character = Serial.read();
+      content.concat(character);
+  }
+  create_text(content);
   for (int i = 0; i < charlength; i ++)
   {
     for (int j = 0; j < 12; j ++)
