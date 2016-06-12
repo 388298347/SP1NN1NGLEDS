@@ -143,11 +143,12 @@ Serial.begin(9600);
     pinMode(i, OUTPUT);
   }
 }
-bool folge[4*8][12]; //max. letters to display
+bool folge[8*8][12]; //max. letters to display
 int charlength;
 void create_text(String text)
 {
   charlength = text.length()*8;
+  if (charlength > 64) return;
   for(int i = 0; i < text.length(); i ++)
   {
     for(byte r = 0; r < 8; r ++)
@@ -183,12 +184,12 @@ void loop() {
       else
         leds[j].an();
     }
-    delay(1);
-   /* int akt_time=micros();
+    //delay(1);
+    int akt_time=micros();
     do
     {
     }
-    while(akt_time+750>micros());*/
+    while(akt_time+750>micros());
   }
 }
 
