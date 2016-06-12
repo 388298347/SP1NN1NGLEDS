@@ -130,6 +130,28 @@ class LED {
 0x00,0x60,0x20,0x20,0x20,0x10,0x20,0x20,0x20,0x20,0x60,0x00,  // }
 0x40,0xA4,0x18,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,  // ~
 };
+      const byte Symbols[4] PROGMEM={
+        {
+      {false,false,false,false,false,false,false,false,false,false,false,},
+      {false,false,false,false,true,true,true,true,false,false,false,},
+      {false,false,false,true,false,false,false,false,true,false,false,},
+      {false,false,true,false,false,false,true,false,false,true,false,},
+      {false,true,false,false,false,false,false,true,false,false,true,},
+      {false,true,false,true,false,false,false,false,true,false,true,},
+      {false,true,false,false,false,false,false,false,true,false,true,},
+      {false,true,false,true,false,false,false,false,true,false,true,},
+      {false,true,false,false,false,false,false,true,false,false,true,},
+      {false,false,true,false,false,false,true,false,false,true,false,},
+      {false,false,false,true,false,false,false,false,true,false,false,},
+      {false,false,false,false,true,true,true,true,false,false,false,},
+      {false,false,false,false,false,false,false,false,false,false,false,}},
+        {},
+        {},
+        {}
+      }
+  
+  
+  
   
   const int ledanzahl = 12;
   LED leds[ledanzahl] = {LED(13), LED(2), LED(3), LED(4), LED(5), LED(6), LED(7), LED(8), LED(9), LED(10), LED(11), LED(12)};
@@ -152,20 +174,7 @@ void create_text(String text)
   if (charlength > 8*maxchars)
   {
     if (text == "###smiley")
-      folge = {
-      {false,false,false,false,false,false,false,false,false,false,false,},
-      {false,false,false,false,true,true,true,true,false,false,false,},
-      {false,false,false,true,false,false,false,false,true,false,false,},
-      {false,false,true,false,false,false,true,false,false,true,false,},
-      {false,true,false,false,false,false,false,true,false,false,true,},
-      {false,true,false,true,false,false,false,false,true,false,true,},
-      {false,true,false,false,false,false,false,false,true,false,true,},
-      {false,true,false,true,false,false,false,false,true,false,true,},
-      {false,true,false,false,false,false,false,true,false,false,true,},
-      {false,false,true,false,false,false,true,false,false,true,false,},
-      {false,false,false,true,false,false,false,false,true,false,false,},
-      {false,false,false,false,true,true,true,true,false,false,false,},
-      {false,false,false,false,false,false,false,false,false,false,false,}};
+      folge = pgm_read_byte_near(Symbols + 1);
     return;
   }
   for(int i = 0; i < text.length(); i ++)
