@@ -166,6 +166,10 @@ bool folge[maxchars*8][12]; //max. letters to display
 int charlength;
 void create_text(String text)
 {
+  if (text == "###smiley")
+    folge = pgm_read_byte_near(Smily + 0);
+    return;
+  }
   charlength = text.length()*8;
   if (charlength > 8*maxchars)
   {
